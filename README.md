@@ -1,5 +1,8 @@
 # This is a VIDEO Recommender
-## About gui/
-- A Flask Web App
+## About this
+- A Flask Web App named "Jagaimo".
 ## About sources/
-- Main algorithms
+- Main algorithms.
+***
+## How to use.
+```$python3 jagaimo.py```
