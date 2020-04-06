@@ -34,6 +34,7 @@ This is a VIDEO Recommender
 
 ## How to learn models
 
+### Preprocessing
 - Gen a text set (document_set.txt).
 
 ```$python3 doc_gen.py```
@@ -48,14 +49,21 @@ This is a VIDEO Recommender
 
 ```$less files.txt | xargs grep ".txt" > files.txt```
 
-- Create a feature data (.json).
+### Create freq based feature
+
+- Create a frequency based feature data (.json).
 
 ```$python3 freq_based_vectorize.py document_set.txt```
+
+### Create topic based feature
+
+- Create a semantic elems from text set with neologd_dic by LDA and HDP-LDA.
+
+```$python3 documents_vectorize.py document_set.txt```
+
+### Get a distributed representantion
 
 - Create a distributed representation from text set (.model) with ipa_dic.
 
 ```$python3 program2vec.py document_set.txt``` 
 
-- Create a semantic elems from text set with neologd_dic by LDA and HDP-LDA.
-
-```$python3 documents_vectorize.py document_set.txt```
