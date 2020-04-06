@@ -11,6 +11,8 @@ This is a VIDEO Recommender
 
 ## How to run the Jagaimo(GUI)
 
+- Run the Jagaimo
+
 ```$python3 jagaimo.py```
 
 - Display struct elems.
@@ -44,7 +46,7 @@ This is a VIDEO Recommender
 
 ```$ls -la text/ > files.txt```
 
-```$less files.txt | xargs grep ".txt" > files.txt
+```$less files.txt | xargs grep ".txt" > files.txt```
 
 - Create a feature data (.json).
 
