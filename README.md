@@ -58,6 +58,7 @@ This is a VIDEO Recommender
 ### Create topic based feature
 
 - Create a semantic elems from text set with neologd_dic by LDA and HDP-LDA.
+  - First run by LDA, Next run by HDP-LDA.
 
 ```$python3 documents_vectorize.py document_set.txt```
 
