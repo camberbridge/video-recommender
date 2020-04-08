@@ -47,7 +47,7 @@ This is a VIDEO Recommender
 
 ```$ls -la text/ > files.txt```
 
-```$less files.txt | xargs grep ".txt" > files.txt```
+```$less files.txt | grep ".txt" > files.txt```
 
 ### Create freq based feature
 
