@@ -28,14 +28,14 @@ def word_count(sentences, is_doc_or_docs):
     return words_list, sent_tf_list
 
 
-def main(text, is_doc_or_docs = True):
+def main(text_list, is_doc_or_docs = True):
     # Separate documents by new line. 
-    sentences = list(tools.sent_splitter_ja(text))
-    return word_count(sentences, is_doc_or_docs)
+    #sentences = list(tools.sent_splitter_ja(text))
+    return word_count(text_list, is_doc_or_docs)
 
 
 if __name__ == "__main__":
     with open(sys.argv[1], "r") as f:
-        text = f.read()
+        text_list = f.readlines()
 
-    print(main(text))
+    print(main(text_list))

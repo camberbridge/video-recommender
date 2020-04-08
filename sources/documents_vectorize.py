@@ -12,7 +12,7 @@ def document_wakati(text):
     """
 
     with open(text, "r") as f:
-        sentences = f.read()
+        sentences = f.readlines()
         splitted_document_WAKATIlist, _ = main(sentences)
         return splitted_document_WAKATIlist
 
@@ -23,8 +23,9 @@ def documents_wakati(text):
     """
 
     with open(text, "r") as f:
-        sentences = f.read()
+        sentences = f.readlines()
         splitted_document_WAKATIlist, _ = main(sentences, is_doc_or_docs = False)
+
         return splitted_document_WAKATIlist
 
 def lda(input_file = sys.argv[1]):
