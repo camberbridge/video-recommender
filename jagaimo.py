@@ -17,10 +17,10 @@ import base64
 app = Flask(__name__)
 
 
-with open("/Users/ruffy/Desktop/ts2text/RandD/texts/tv_program.json", "r") as f:
+with open("/Users/ruffy/Desktop/video-recommender/sources/texts/tv_program.json", "r") as f:
     program_list = json.load(f)
 
-with open("/Users/ruffy/Desktop/ts2text/RandD/files.txt", "r") as f:
+with open("/Users/ruffy/Desktop/video-recommender/sources/data/files.txt", "r") as f:
     file_list = f.readlines()
     tvlist_dic = program_list
     tvlist_list = [tvlist_dic[str(i+1)][3].replace(" ","").replace(u"　","")+"("+tvlist_dic[str(i+1)][2]+u"放送)_"+str(i+1) for i in range(len(tvlist_dic))]
@@ -36,11 +36,11 @@ def tv_elem(program_id):
         return l
 
     # 上位概念≒概略 (LDAが上位の理由は, トピック数が20の事前分布なので)
-    with open("/Users/ruffy/Desktop/ts2text/RandD/models/lda20_2_30per.json", "r") as f:
+    with open("/Users/ruffy/Desktop/video-recommender/sources/models/lda20_2_30per.json", "r") as f:
         lda_result = json.load(f)
         
     # 下位概念≒詳細 ( HDP_LDAが下位の理由は, トピック数がMAX150の事前分布なので詳細であるとして)
-    with open("/Users/ruffy/Desktop/ts2text/RandD/models/hdplda_2_30per.json", "r") as f:
+    with open("/Users/ruffy/Desktop/video-recommender/sources/models/hdplda_2_30per.json", "r") as f:
         hdp_result = json.load(f)
 
     if program_id in lda_result:
@@ -58,7 +58,7 @@ def tv_elem(program_id):
     return lda_result, hdp_result
 
 def program2vec():
-    m = Doc2Vec.load("/Users/ruffy/Desktop/ts2text/RandD/doc2vec.model")
+    m = Doc2Vec.load("/Users/ruffy/Desktop/video-recommender/sources/models/doc2vec.model")
     return m
 
 def similarities_inference(m, doc_id, _topn):
