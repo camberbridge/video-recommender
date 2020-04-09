@@ -119,7 +119,8 @@ def lda(input_file = sys.argv[1]):
 
     # Calculate a occuerence probabilty of each words in topics that most represent a input document. 
     input_text_topics = topics[len(separated_document_list) -1]  # [(topic's index, occProb), ...]
-    word_prob_in_topic = model.print_topics(num_topics=-1, num_words=len(dictionary))  # [(topic's index, u"'occProb*word', ..."), ...]
+    #word_prob_in_topic = model.print_topics(num_topics=-1, num_words=len(dictionary))  # [(topic's index, u"'occProb*word', ..."), ...]
+    word_prob_in_topic = model.print_topics(num_topics=topic_N, num_words=len(dictionary))  # [(topic's index, u"'occProb*word', ..."), ...]
     word_prob_in_topic_dic = {}  # {"word": "prob", ...}
     
     for input_text_topic in input_text_topics:
