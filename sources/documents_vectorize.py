@@ -62,6 +62,7 @@ def lda(input_file = sys.argv[1]):
     corpus = corpora.MmCorpus('cop.mm')
 
     # Create a model by Hierarchical Dirichlet Process.
+    #topic_N = 150
     #model = gensim.models.hdpmodel.HdpModel(corpus=corpus, id2word=dictionary)
 
     # Create a model by Latent Dirichlet Allocation.
@@ -69,7 +70,8 @@ def lda(input_file = sys.argv[1]):
     model = gensim.models.ldamodel.LdaModel(corpus=corpus, num_topics=topic_N, id2word=dictionary)
 
     # Topics(Max. 150), and words that construct a topic.
-    topics_list = model.print_topics(num_topics=-1, num_words=999999)
+    #topics_list = model.print_topics(num_topics=-1, num_words=999999)
+    topics_list = model.print_topics(num_topics=topic_N, num_words=999999)
 
     # Count topics that estimated above script.
     estimated_topicnum_list = []
